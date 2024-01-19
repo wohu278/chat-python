@@ -1,10 +1,14 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, send
+from dotenv import load_dotenv
+import os
 # import request
 
-app = Flask(__name__)
+load_dotenv()
 
-app.config['SECRET_KEY'] = 'secret'
+app = Flask(__name__)
+#De esta manera (con el secret key) no se subirá la clave a github
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 socketio = SocketIO(app)
 
 @app.route('/')
