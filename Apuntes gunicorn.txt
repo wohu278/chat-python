@@ -1,0 +1,1 @@
+Para subirlo a render en el Start command: gunicorn "nombre archivo":"nombre de flask"(normalmente app)
